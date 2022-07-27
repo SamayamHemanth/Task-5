@@ -1,0 +1,430 @@
+1.
+//anonymous
+ let array=[12,13,14,15,16,17];
+
+for(i=0;i<array.length;i++){
+    if(array[i]%2!=0){
+        console.log(array[i]+"is odd numbers");
+    }
+    
+    
+}
+
+
+output: 
+13is odd numbers
+15is odd numbers
+17is odd numbers
+
+//IIFE
+(function(a){
+  let  res="";
+  for(i=0;i<a.length-1;i++)
+  {
+      if(a[i]%2!==0)
+      {
+          res+=a[i]+"is a odd number "
+      }
+  }
+  res+=a[a.length-1]
+  console.log(res);
+})([12,13,14,15,16,17]);
+
+output:
+13is odd numbers
+15is odd numbers
+17is odd numbers
+
+
+
+2.
+//anonymous
+let str=function (string) {
+  for(let i=0;i<string.length;i++){
+let result=string[i].toUpperCase();
+console.log(result);
+  }
+}(["the sun set in west"]);
+
+output:
+THE SUN SET IN WEST
+
+
+
+
+//IIFE
+ (function (string) {
+    for(let i=0;i<string.length;i++){
+  let result=string[i].toUpperCase();
+  console.log(result);
+    }
+  })(["the sun set in west"]);
+
+output:
+THE SUN SET IN WEST
+
+3. 
+//anonymous
+function newFunction() {
+    let array = [10, 20, 30, 40, 50];
+    for (var i = 0, sum = 0; i < array.length; sum += array[i++])
+        ; {
+        console.log(sum);
+    }
+}
+newFunction();
+
+output:
+150
+
+//IIFE
+(function newFunction() {
+  let array = [10, 20, 30, 40, 50];
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++])
+      ; {
+      console.log(sum);
+  }
+}
+());
+
+output:
+150
+
+4.
+//anonymous
+let srt=function(a){
+  let res="";
+  for(i=0;i<a.length;i++)
+  {
+      let count=0;
+      for(j=1;j<=a[i];j++)
+      {
+          if(a[i]%j===0)
+          {
+              count++
+          }
+      }
+      if(count==2)
+      {
+          res+=a[i]+" is a prime number"
+      }
+  }
+  console.log(res);
+
+}([1,2,3,4,5,6,7,8,9,11]);
+
+output:
+2 is a prime number
+3 is a prime number
+5 is a prime number
+7 is a prime number
+11 is a prime number
+
+
+
+//IIFE
+(function(a){
+    let res="";
+    for(i=0;i<a.length;i++)
+    {
+        let count=0;
+        for(j=1;j<=a[i];j++)
+        {
+            if(a[i]%j===0)
+            {
+                count++
+            }
+        }
+        if(count==2)
+        {
+            res+=a[i]+"is a prime number "
+        }
+    }
+    console.log(res);
+ 
+})([1,2,3,4,5,6,7,8,9,11]);
+
+output:
+2 is a prime number
+3 is a prime number
+5 is a prime number
+7 is a prime number
+11 is a prime number 
+
+5.
+//anonymous
+let palindrome=function(a){
+  let res="";
+  let ans="";
+  for(i=0;i<a.length;i++)
+  {
+      res+=a[i];
+      var count=0
+      
+      for(j=0;j<res.length;j++)
+      {
+          if(res[j]===res[((res.length-1)-j)])
+          {
+              count++
+              
+          }
+      }
+      if(count===res.length)
+      {
+          ans+=res+" "
+      }
+      res="";
+  }
+  return ans;
+
+}
+console.log(palindrome([1,11,343,200,798,80108,8008,999,7171,700007]))
+
+output:
+1 11 343 80108 8008 999 700007 
+
+
+//IIFE
+(function(a){
+  let res="";
+  let ans="";
+  for(i=0;i<a.length;i++)
+  {
+      res+=a[i];
+      var count=0
+      
+      for(j=0;j<res.length;j++)
+      {
+          if(res[j]===res[((res.length-1)-j)])
+          {
+              count++
+              
+          }
+      }
+      if(count===res.length)
+      {
+          ans+=res+" "
+      }
+      res="";
+  }
+  return ans;
+
+})
+console.log(palindrome([1,11,343,200,798,80108,8008,999,7171,700007]))
+
+output:
+1 11 343 80108 8008 999 700007 
+
+
+6.//anonymous
+  let arr=function(a,b){
+  let c=[];
+  let n=a.length;
+  let p=b.length;
+  let i=0;
+  let j=0;
+  let med=0;
+  while(i<n && j<p)
+  {
+      if(a[i]<b[j])
+      {
+          c.push(a[i])
+          i++
+      }
+      else
+      {
+          c.push(b[j])
+          j++
+      }
+  }
+  
+   if(i<n)
+   {
+       for(let k=i;k<n;k++)
+       {
+           c.push(a[k])
+       }
+   }
+   else if(j<p)
+   {
+       for(let m=j;m<p;m++)
+       {
+           c.push(b[m])
+       }
+   }
+   if(c.length%2===0)
+   {
+       med=(c[(c.length/2)-1]+c[c.length/2])/2
+   }
+   else
+   {
+       med=c[Math.floor(c.length/2)]
+   }
+   return med;
+  
+}
+console.log(arr([1,2,3,7],[4,5,6,8]));
+
+output:4.5
+
+
+//IIFE
+(function(a,b){
+  let c=[];
+  let n=a.length;
+  let p=b.length;
+  let i=0;
+  let j=0;
+  let med=0;
+  while(i<n && j<p)
+  {
+      if(a[i]<b[j])
+      {
+          c.push(a[i])
+          i++
+      }
+      else
+      {
+          c.push(b[j])
+          j++
+      }
+  }
+  
+   if(i<n)
+   {
+       for(let k=i;k<n;k++)
+       {
+           c.push(a[k])
+       }
+   }
+   else if(j<p)
+   {
+       for(let m=j;m<p;m++)
+       {
+           c.push(b[m])
+       }
+   }
+   if(c.length%2===0)
+   {
+       med=(c[(c.length/2)-1]+c[c.length/2])/2
+   }
+   else
+   {
+       med=c[Math.floor(c.length/2)]
+   }
+   console.log(med);
+  
+}) ([1,2,3,7],[4,5,6,8]);
+
+output:4.5
+
+
+7. //anonymous
+let arr=function(a){
+  let b=[];
+  let n=a.length;
+  for(let i=0;i<n-1;i++)
+  {
+      for(let j=i+1;j<n;j++)
+      {
+          if(a[i]===a[j])
+          {
+              delete a[j]
+          }
+      }
+  }
+  for(let i=0;i<a.length;i++)
+  {
+      if(a[i]%10===Math.floor(a[i]%10))
+      {
+          b.push(a[i])
+      }
+  }
+  let c=""
+  for(let i=0;i<b.length-1;i++)
+   {
+       c+=b[i]+" ";
+  }
+  c+=b[b.length-1];
+   console.log(c);
+  
+}([1,1,2,1,2,3,3,3,4,3,3,3,3,2,2,2]);
+
+output:1 2 3 4
+
+
+
+//IIFE
+(function(a){
+  let b=[];
+  let n=a.length;
+  for(let i=0;i<n-1;i++)
+  {
+      for(let j=i+1;j<n;j++)
+      {
+          if(a[i]===a[j])
+          {
+              delete a[j]
+          }
+      }
+  }
+  for(let i=0;i<a.length;i++)
+  {
+      if(a[i]%10===Math.floor(a[i]%10))
+      {
+          b.push(a[i])
+      }
+  }
+  let c=""
+  for(let i=0;i<b.length-1;i++)
+   {
+       c+=b[i]+" ";
+  }
+  c+=b[b.length-1];
+   console.log(c);
+  
+})([1,1,2,1,2,3,3,3,4,3,3,3,3,2,2,2]);
+
+output:1 2 3 4
+
+
+8.//anonymous
+ let rotate=function(a,k){
+  n=a.length;
+c=[];
+d="";
+for(i=0;i<n;i++)
+{
+    c[(i+k)%(n)]=a[i]
+}
+for(i=0;i<c.length-1;i++)
+{
+    d+=c[i]+" "
+}
+d+=c[c.length-1]
+return d;
+}
+console.log(rotate([1,2,3,4,5],4))
+
+output:2,3,4,5,1
+
+
+//IIFE
+(function(a,k){
+    n=a.length;
+ c=[];
+  d="";
+  for(i=0;i<n;i++)
+  {
+      c[(i+k)%(n)]=a[i]
+  }
+  for(i=0;i<c.length-1;i++)
+  {
+      d+=c[i]+" "
+  }
+  d+=c[c.length-1]
+  console.log(d);
+}) ([1,2,3,4,5],4);
+
+output:2,3,4,5,1
+

@@ -1,0 +1,88 @@
+1. let array=[12,13,14,15,16,17];
+
+let odd=array.filter(number => {
+  return number % 2! == 0
+}
+  );
+
+  console.log(odd);
+
+
+output:
+
+[ 13, 15, 17 ]
+
+2.((string) => {
+  for(let i=0;i<string.length;i++){
+let result=string[i].toUpperCase();
+console.log(result);
+  }
+})(["the sun set in west"]);
+
+output:
+THE SUN SET IN WEST
+
+3.function newfunction(){
+let array=[10, 20, 30, 40, 50];
+let result=array.reduce((a,b)=>a+b);
+console.log(result);
+}
+newfunction();
+
+output:
+150
+
+4.((a)=>{
+  let  res="";
+  for(i=0;i<a.length;i++)
+  {
+      let count=0;
+      for(j=1;j<=a[i];j++)
+      {
+          if(a[i]%j===0)
+          {
+              count++
+          }
+      }
+      if(count==2)
+      {
+          res+=a[i]+" "
+      }
+  }
+  console.log(res);
+
+})([1,2,3,4,5,6,7,8,9,11]);
+
+output:
+2 3 5 7 11 
+
+5.let palindrome=(a)=>{
+  let res="";
+  let ans="";
+  for(i=0;i<a.length;i++)
+  {
+      res+=a[i];
+      var count=0
+      
+      for(j=0;j<res.length;j++)
+      {
+          if(res[j]===res[((res.length-1)-j)])
+          {
+              count++
+              
+          }
+      }
+      if(count===res.length)
+      {
+          ans+=res+" "
+      }
+      res="";
+  }
+  return ans;
+
+}
+console.log(palindrome([1,11,343,200,798,80108,8008,999,7171,700007]))
+
+output:
+1 11 343 80108 8008 999 700007 
+
